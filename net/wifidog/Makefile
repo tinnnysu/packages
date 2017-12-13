@@ -20,9 +20,9 @@ PKG_LICENSE_FILES:=COPYING
 
 
 PKG_SOURCE_PROTO:=git
-PKG_SOURCE_URL:=git://github.com/wifidog/wifidog-gateway.git
+PKG_SOURCE_URL:=git://github.com/tinnnysu/wifidog-gateway.git
 PKG_SOURCE_SUBDIR:=$(PKG_NAME)-$(PKG_VERSION)
-PKG_SOURCE_VERSION:=1.3.0
+PKG_SOURCE_VERSION:=2e109d0a0ab735655834d537165fffa9562a5956
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION)-$(PKG_SOURCE_VERSION).tar.gz
 
 PKG_FIXUP:=autoreconf
@@ -86,6 +86,7 @@ endif
 
 define Package/wifidog/install
 	$(INSTALL_DIR) $(1)/usr/bin
+	$(INSTALL_BIN) $(PKG_BUILD_DIR)/scripts/init.d/wifidog $(1)/usr/bin/wifidog-init
 	$(INSTALL_BIN) $(PKG_INSTALL_DIR)/usr/bin/wifidog $(1)/usr/bin/
 	$(INSTALL_BIN) $(PKG_INSTALL_DIR)/usr/bin/wdctl $(1)/usr/bin/
 	$(INSTALL_DIR) $(1)/usr/lib
